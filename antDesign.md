@@ -19,6 +19,13 @@ Which language do you want to use? 选择你使用的语言
 ❯ TypeScript
  JavaScript
 
+? Select the boilerplate type ant-design-pro
+? 🧙 Be the first to experience the new umi@3 ? Pro V4
+? 🤓 Which language do you want to use? JavaScript
+? 🚀 Do you need all the blocks or a simple scaffold? complete
+> 🙈 complete mode can only use the version of antd@4
+
+
 $ cd my-app
 $ yarn
 $ yarn start # 打开浏览器访问 http://localhost:8000
