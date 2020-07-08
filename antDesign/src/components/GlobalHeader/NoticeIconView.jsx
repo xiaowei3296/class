@@ -5,7 +5,7 @@ import groupBy from 'lodash/groupBy';
 import moment from 'moment';
 import NoticeIcon from '../NoticeIcon';
 import styles from './index.less';
-
+// @connect(({ global } = { global, gstata: global.notices }))
 class GlobalHeaderRight extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
@@ -13,11 +13,12 @@ class GlobalHeaderRight extends Component {
     if (dispatch) {
       dispatch({
         type: 'global/fetchNotices',
+        payload: '1111',
       });
     }
   }
 
-  changeReadState = clickedItem => {
+  changeReadState = (clickedItem) => {
     const { id } = clickedItem;
     const { dispatch } = this.props;
 
@@ -48,7 +49,7 @@ class GlobalHeaderRight extends Component {
       return {};
     }
 
-    const newNotices = notices.map(notice => {
+    const newNotices = notices.map((notice) => {
       const newNotice = { ...notice };
 
       if (newNotice.datetime) {
@@ -83,9 +84,9 @@ class GlobalHeaderRight extends Component {
     return groupBy(newNotices, 'type');
   };
 
-  getUnreadData = noticeData => {
+  getUnreadData = (noticeData) => {
     const unreadMsg = {};
-    Object.keys(noticeData).forEach(key => {
+    Object.keys(noticeData).forEach((key) => {
       const value = noticeData[key];
 
       if (!unreadMsg[key]) {
@@ -93,7 +94,7 @@ class GlobalHeaderRight extends Component {
       }
 
       if (Array.isArray(value)) {
-        unreadMsg[key] = value.filter(item => !item.read).length;
+        unreadMsg[key] = value.filter((item) => !item.read).length;
       }
     });
     return unreadMsg;
@@ -103,11 +104,12 @@ class GlobalHeaderRight extends Component {
     const { currentUser, fetchingNotices, onNoticeVisibleChange } = this.props;
     const noticeData = this.getNoticeData();
     const unreadMsg = this.getUnreadData(noticeData);
+    console.log(this.props);
     return (
       <NoticeIcon
         className={styles.action}
         count={currentUser && currentUser.unreadCount}
-        onItemClick={item => {
+        onItemClick={(item) => {
           this.changeReadState(item);
         }}
         loading={fetchingNotices}

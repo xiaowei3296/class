@@ -284,6 +284,12 @@ export default defineConfig({
                   path: '/editor/koni',
                   component: './editor/koni',
                 },
+                {
+                  name: 'xiaowei',
+                  icon: 'smile',
+                  path: '/editor/xiaowei',
+                  component: './editor/xiaowei',
+                },
               ],
             },
             {
