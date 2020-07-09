@@ -288,7 +288,7 @@ export default defineConfig({
                   name: 'xiaowei',
                   icon: 'smile',
                   path: '/editor/xiaowei',
-                  component: './editor/xiaowei',
+                  component: './editor/xiaowei', 
                 },
               ],
             },
